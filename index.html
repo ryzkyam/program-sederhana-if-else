@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input dengan JavaScript</title>
+</head>
+<body>
+
+<!-- Membuat input -->
+<label for="score">Masukkan nilai score:</label>
+<input type="text" id="scoreInput">
+<button onclick="evaluateScore()">Evaluasi</button>
+
+<!-- Menampilkan hasil evaluasi -->
+<p id="result"></p>
+
+<script>
+    // Fungsi untuk mengevaluasi nilai score
+    function evaluateScore() {
+        // Mengambil nilai dari input
+        var score = document.getElementById("scoreInput").value;
+
+        // Konversi nilai input ke dalam bentuk angka
+        score = parseFloat(score);
+
+        // Inisialisasi variabel result
+        var result;
+
+        // Logika if untuk mengevaluasi score
+        if (!isNaN(score)) { // Memastikan input adalah angka
+            if (score >= 90) {
+                result = 'Selamat! Anda mendapatkan nilai A.';
+            } else if (score >= 80 && score <= 89) {
+                result = 'Anda mendapatkan nilai B.';
+            } else if (score >= 70 && score <= 79) {
+                result = 'Anda mendapatkan nilai C.';
+            } else if (score >= 60 && score <= 69) {
+                result = 'Anda mendapatkan nilai D.';
+            } else {
+                result = 'Anda mendapatkan nilai E.';
+            }
+        } else {
+            result = 'Masukkan nilai yang valid.';
+        }
+
+        // Menampilkan hasil evaluasi
+        document.getElementById("result").innerText = result;
+    }
+</script>
+
+</body>
+</html>
